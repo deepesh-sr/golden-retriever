@@ -1,6 +1,6 @@
 import { Html, useProgress } from "@react-three/drei";
 
-export const CanvasLoader = () => {
+const CanvasLoader = () => {
     const progress = useProgress();
     return (
         <Html
@@ -20,8 +20,10 @@ export const CanvasLoader = () => {
                 fontWeight: 800,
                 marginTop: 40
             }}>
-                {progress !== 0 ? `${progress.toFixed(2)}%` : 'Loading...'}
+                Loading ...
             </p>
         </Html>
     )
 }
+
+export default CanvasLoader;

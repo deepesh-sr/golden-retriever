@@ -1,9 +1,66 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { CanvasLoader } from "./CanvasLoader";
+import CanvasLoader from "./CanvasLoader.jsx";
+import HackerRoom from './HackerRoom.jsx'
+import { Leva, useControls } from "leva";
+import { useMediaQuery } from "react-responsive";
 
 const Hero = () => {
+    const x = useControls('HackerRoom',
+        {
+            mobilePosition :{
+                value : 0.1,
+                min: 0,
+                max : 5
+            },
+            positionX: {
+                value: 0,
+                min: -10,
+                max: 10,
+
+            },
+            positionY: {
+                value: -10,
+                min: -20,
+                max: 10,
+
+            },
+            positionZ: {
+                value: 0,
+                min: -10,
+                max: 10,
+
+            },
+            rotationX: {
+                value: 0,
+                min: -10,
+                max: 10,
+
+            },
+            rotationY: {
+                value: 3.2,
+                min: -10,
+                max: 10,
+
+            },
+            rotationZ: {
+                value: 0,
+                min: -10,
+                max: 10,
+
+            },
+            scale: {
+                value: 0.1,
+                min: 0,
+                max: 1
+            }
+        }
+        
+    )
+    const isMobile = useMediaQuery({
+        maxWidth : 768
+    })
     return (
         <section
             className="min-h-screen w-full flex flex-col relative"
@@ -17,10 +74,14 @@ const Hero = () => {
                 </p>
             </div>
             <div className="w-full h-full absolute inset-0">
+                <Leva />
                 <Canvas className='w-full h-full'>
-                    <Suspense fallback={<CanvasLoader/>}>
-
+                    <Suspense fallback={<CanvasLoader />}>
+                        <HackerRoom scale={isMobile ? x.mobilePosition: x.scale} position={[x.positionX, x.positionY, x.positionZ]} rotation={[x.rotationX, x.rotationY, x.rotationZ]} />
                         <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+                        <ambientLight intensity={1} />
+                        <directionalLight position={[10, 10, 10]} intensity={1} />
+
                     </Suspense>
                 </Canvas>
             </div>
