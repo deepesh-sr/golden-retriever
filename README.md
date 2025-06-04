@@ -32,7 +32,7 @@ npm run build
 
 ## Live Demo
 
-[View Portfolio](your-portfolio-url.com)
+[View Portfolio] YET TO DEPLOY
 
 ---
 
