@@ -1,15 +1,15 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import CanvasLoader from "./CanvasLoader.jsx";
-import HackerRoom from './HackerRoom.jsx'
+import CanvasLoader from "../components/CanvasLoader.jsx";
+import HackerRoom from '../components/HackerRoom.jsx'
 import { useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants/index.js";
-import Target from "./Target.jsx";
-import ReactLogo from "./ReactLogo.jsx";
-import Cube from "./Cube.jsx";
-import Rings from "./Rings.jsx";
+import Target from "../components/Target.jsx";
+import ReactLogo from "../components/ReactLogo.jsx";
+import Cube from "../components/Cube.jsx";
+import Rings from "../components/Rings.jsx";
 
 
 
@@ -109,9 +109,9 @@ const Hero = () => {
                     </Suspense>
                     
                         <Target position={sizes.targetPosition} />
-                        <ReactLogo/>
-                        <Cube position={sizes.cubePosition}/>
-                        <Rings position={sizes.ringPosition} />
+                        <ReactLogo position={sizes.reactLogoPosition}/>
+                        <Cube position={sizes.cubePosition} scale={1.3}/>
+                        {/* <Rings position={sizes.ringPosition}/> */}
                 </Canvas>
                 
             </div>
