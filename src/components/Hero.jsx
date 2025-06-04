@@ -7,6 +7,7 @@ import { useControls } from "leva";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants/index.js";
 import Target from "./Target.jsx";
+import ReactLogo from "./ReactLogo.jsx";
 
 
 
@@ -111,8 +112,8 @@ const Hero = () => {
                         <directionalLight position={[10, 10, 10]} intensity={1} />
                     </Suspense>
                     
-                        <Target position={[x.targetPositionX,x.targetPositionY,x.targetPositioZ]}/>
-                    
+                        <Target position={[x.targetPositionX,x.targetPositionY,x.targetPositioZ]} />
+                        <ReactLogo/>
                 </Canvas>
                 
             </div>
